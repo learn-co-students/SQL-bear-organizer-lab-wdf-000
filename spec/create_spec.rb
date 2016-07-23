@@ -1,7 +1,9 @@
 describe 'creating bears table' do
   before do
+    # creates a new in-memory database
+    # This ensures that our database gets thrown out after every run of the tests
     @db = SQLite3::Database.new(':memory:')
-    @sql_runner = SQLRunner.new(@db)
+    @sql_runner = SQLRunner.new(@db) # Helps connect to the db
     @sql_runner.execute_create_file
   end
 
